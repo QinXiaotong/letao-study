@@ -8,7 +8,9 @@
 	<link rel="stylesheet" href="css/system.css">
 	<script src="assets/jquery/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/artTemplate/template-native.js"></script>
 	<script src="js/common.js"></script>
+	<script src="js/category-first.js"></script>
 </head>
 <body>
 	<div class="system">
@@ -75,14 +77,14 @@
 	        			<th>分类的编号</th>
 	        			<th>分类名称</th>
 	        		</tr>
-	        		<tr>
-	        			<td>1</td>
-	        			<td>运动馆</td>
-	        		</tr>
+					<tbody  id="categoryFirstBox">
+
+					</tbody>
+
 	        	</table>
 	        	<div class="btn-group page">
-	        		<div class="btn btn-default">上一页</div>
-	        		<div class="btn btn-default">下一页</div>
+	        		<div id="prev" class="btn btn-default">上一页</div>
+	        		<div id="next" class="btn btn-default">下一页</div>
 	        	</div>
 	        </div>
 		</div>
@@ -96,17 +98,24 @@
 					<h4 class="modal-title" id="myLargeModalLabel">添加分类</h4>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="请输入分类的名称">
-					</div>
+					<form class="form-group">
+						<input type="text" class="form-control" id="addForm" placeholder="请输入分类的名称">
+					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary">保存</button>
+					<button type="button" class="btn btn-primary" id="bcBtn">保存</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<script type="text/html" id="categoryFirstTpl">
+		<% for (var i = 0; i < rows.length; i++) { %>
+			<tr>
+				<td><%=rows[i].id %></td>
+				<td><%=rows[i].categoryName %></td>
+			</tr>
+		<% } %>
+	</script>
 </body>
 </html>

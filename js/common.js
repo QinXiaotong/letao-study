@@ -10,6 +10,10 @@ $(function(){
 
 });
 
+// 允许客户端写入读取cookie
+$.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+
+// 获取表单数据函数
 $.fn.serializeToJson = function () {
     var formAry = this.serializeArray();
 
@@ -20,9 +24,11 @@ $.fn.serializeToJson = function () {
     return result;
 }
 
+// 配置端口Url
 var APP = {
 	baseUrl : 'http://fullstack.net.cn:3000'
 }
+
 //获取URL地址栏的函数
 function getUrlParams (name) {
     var search = location.search.slice(1);
